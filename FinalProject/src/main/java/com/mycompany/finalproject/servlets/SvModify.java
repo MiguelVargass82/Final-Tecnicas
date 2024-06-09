@@ -44,12 +44,10 @@ public class SvModify extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-    System.out.println("SVModify aca");     
     String chooseModify = request.getParameter("chooseModify");
     String textModify = request.getParameter("textModify");
     
-    System.out.println("chooseModify: " + chooseModify);
-    System.out.println("textModify: " + textModify);
+  
 
     request.setAttribute("choose", chooseModify);
     request.setAttribute("myText", textModify);                      
