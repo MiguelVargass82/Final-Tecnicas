@@ -7,7 +7,12 @@ public class Person {
     String Experience;
 
     
-    public Person(){}
+    public Person(){
+      
+    GeneralInformation="";
+     Skills="";
+     Experience="";   
+    }
     
     public Person(String GeneralInformation, String Skills, String Experience) {
         this.GeneralInformation = GeneralInformation;

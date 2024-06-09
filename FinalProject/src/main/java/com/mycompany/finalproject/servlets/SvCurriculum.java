@@ -19,7 +19,7 @@ import java.util.Set;
 public class SvCurriculum extends HttpServlet {
     
     
-Person person1 = new Person();  //Instance for the program
+Person person1 = new Person();
  
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -39,32 +39,61 @@ Person person1 = new Person();  //Instance for the program
         
         //The values 
         String choose = request.getParameter("choose");
+        String gInfo = request.getParameter("GenInformationtxt");
+        String  exp = request.getParameter("Experiencetxt");
+        String skills = request.getParameter("Skillstxt");
+        
+       
         System.out.println("the choose was: "+choose);
+        System.out.println("the G info was: "+gInfo);
+        System.out.println("the exp was: "+exp);
+        System.out.println("the skills was: "+skills);
+
+        
         switch (choose) {
             //Modifiy
             
             case "1":   //General information
-                
+                  request.setAttribute("choose", choose);
+
+                 request.setAttribute("myText", gInfo);
+                  request.getRequestDispatcher("modifyInformation.jsp").forward(request, response);
+
                 break;
                 
             case "2":   //Experience
+                  request.setAttribute("choose", choose);
+
+                 request.setAttribute("myText", exp);
+                   request.getRequestDispatcher("modifyInformation.jsp").forward(request, response);
+
                 break;
                       
             case "3":   //Skills
+                 request.setAttribute("choose", choose);
+
+                 request.setAttribute("myText", skills);
+                   request.getRequestDispatcher("modifyInformation.jsp").forward(request, response);
+
                 break;
             
              //Delete paths
                 
                 
               case "1.1":   //delete general information
-                  person1.setGeneralInformation("");                 
-                break;                              
-            case "2.1":   //delete Experience
-                person1.setExperience("");
+                 request.getRequestDispatcher("index.jsp").forward(request, response);
+
+                break;                     
+                
+            case "1.2":   //delete Experience
+                 request.getRequestDispatcher("index.jsp").forward(request, response);
+                
+
                 break;
             
-            case "3.1":   //Delete Skills
-                person1.setSkills("");
+            case "1.3":   //Delete Skills
+                 request.getRequestDispatcher("index.jsp").forward(request, response);
+
                 break;
                 
                              

@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ page import="LogicClasses.Person" %>
+<% Person person1 = new Person();   //Instance for the program%>
+
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Curriculum Vitae</title>
@@ -9,6 +12,7 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
+    
     <div class="container">
         <div class="row mt-5">
                 <div class="col-md-12 text-center">
@@ -25,13 +29,34 @@
         <div class="row">       <!-- general information-->
             <div class="col-md-4">
                 <h3>General information</h3>
-                <p>Here will be the general information you want to add</p>
-                <form action="SvCurriculum" method="POST">
-                    <input type="hidden" name="choose" value="1">
+                <%person1.setGeneralInformation("info GI");%>
+                 <%person1.setExperience("info EXP");%>
+                 <%person1.setSkills("info SKILLS");%>
+            <% 
+                 if (person1.getGeneralInformation() == null || person1.getGeneralInformation().isEmpty()) { %>
+                  <p>Here will be the general information you want to add</p>
+                    <%}else{ %>
+                    <p><%= person1.getGeneralInformation() %></p>
+                    <%}%>
+          
+                <form action="SvCurriculum" method="POST"> 
+                    
+                  <input type="hidden" name="GenInformationtxt" value="<%= person1.getGeneralInformation() %>">
+                     <input type="hidden" name="Experiencetxt" value="<%= person1.getExperience() %>">
+                    <input type="hidden" name="Skillstxt" value="<%= person1.getSkills() %>">
+                      <input type="hidden" name="choose" value="1">
+
+                    
                     <button type="submit"> Modify</button>
                 </form>
                 
                    <form action="SvCurriculum" method="POST">
+                       
+                    <input type="hidden" name="GenInformationtxt" value="<%= person1.getGeneralInformation() %>">
+                     <input type="hidden" name="Experiencetxt" value="<%= person1.getExperience() %>">
+                    <input type="hidden" name="Skillstxt" value="<%= person1.getSkills() %>">
+
+                    
                     <input type="hidden" name="choose" value="1.1">
                     <button type="submit"> Delete</button>
                 </form>
@@ -41,14 +66,33 @@
 
             <div class="col-md-4"> <!-- Experience-->
                 <h3>Experience</h3>
-                <p>Empresa 1, Cargo</p>
+
+                    
+           <% 
+                 if (person1.getExperience() == null || person1.getExperience().isEmpty()) { %>
+                  <p>Here will be the general information you want to add</p>
+                    <%}else{ %>
+                    <p><%= person1.getExperience() %></p>
+                    <%}%>
+                    
+              
                 
                 <form action="SvCurriculum" method="POST">
                     <input type="hidden" name="choose" value="2">
+                    
+                     <input type="hidden" name="GenInformationtxt" value="<%= person1.getGeneralInformation() %>">
+                     <input type="hidden" name="Experiencetxt" value="<%= person1.getExperience() %>">
+                    <input type="hidden" name="Skillstxt" value="<%= person1.getSkills() %>">
+                    
                     <button type="submit"> Modify</button>
                 </form>
                    <form action="SvCurriculum" method="POST">
                     <input type="hidden" name="choose" value="1.2">
+                    
+                     <input type="hidden" name="GenInformationtxt" value="<%= person1.getGeneralInformation() %>">
+                     <input type="hidden" name="Experiencetxt" value="<%= person1.getExperience() %>">
+                    <input type="hidden" name="Skillstxt" value="<%= person1.getSkills() %>">
+                    
                     <button type="submit"> Delete</button>
                 </form>
                 
@@ -56,13 +100,30 @@
 
             <div class="col-md-4">  <!-- Skills -->
                 <h3>Skills</h3>
+ <% 
+                 if (person1.getSkills() == null || person1.getSkills().isEmpty()) { %>
+                  <p>Here will be the general information you want to add</p>
+                    <%}else{ %>
+                    <p><%= person1.getSkills() %></p>
+                    <%}%>
+                
                 <p>Habilidad 1</p>
                <form action="SvCurriculum" method="POST">
                     <input type="hidden" name="choose" value="3">
-                    <button type="submit"> Modificar</button>
+                    
+                      <input type="hidden" name="GenInformationtxt" value="<%= person1.getGeneralInformation() %>">
+                     <input type="hidden" name="Experiencetxt" value="<%= person1.getExperience() %>">
+                    <input type="hidden" name="Skillstxt" value="<%= person1.getSkills() %>">
+                    
+                   
                 </form>
                    <form action="SvCurriculum" method="POST">
                     <input type="hidden" name="choose" value="1.3">
+                    
+                    <input type="hidden" name="GenInformationtxt" value="<%= person1.getGeneralInformation() %>">
+                     <input type="hidden" name="Experiencetxt" value="<%= person1.getExperience() %>">
+                    <input type="hidden" name="Skillstxt" value="<%= person1.getSkills() %>">
+                    
                     <button type="submit"> Delete</button>
                 </form>
                 

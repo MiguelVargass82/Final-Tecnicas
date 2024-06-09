@@ -2,3 +2,4 @@ com\mycompany\finalproject\JakartaRestConfiguration.class
 com\mycompany\finalproject\servlets\SvCurriculum.class
 com\mycompany\finalproject\resources\JakartaEE8Resource.class
 LogicClasses\Person.class
+com\mycompany\finalproject\servlets\SvModify.class
