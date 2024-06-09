@@ -43,21 +43,19 @@ public class SvModify extends HttpServlet {
    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-        
-        
-        System.out.println("SVModify aca");     
-        String chooseModify = request.getParameter("chooseModify");
-        String textModify = request.getParameter("textModify");
-        
-        System.out.println("choose: "+chooseModify);
-        System.out.println("Text: "+textModify);
+        throws ServletException, IOException {
+    System.out.println("SVModify aca");     
+    String chooseModify = request.getParameter("chooseModify");
+    String textModify = request.getParameter("textModify");
+    
+    System.out.println("chooseModify: " + chooseModify);
+    System.out.println("textModify: " + textModify);
 
-         request.setAttribute("choose", chooseModify);
-         request.setAttribute("myText", textModify);                      
-         request.getRequestDispatcher("index.jsp").forward(request, response);
-    }
+    request.setAttribute("choose", chooseModify);
+    request.setAttribute("myText", textModify);                      
+    request.getRequestDispatcher("index.jsp").forward(request, response);
+}
+
 
     
     @Override

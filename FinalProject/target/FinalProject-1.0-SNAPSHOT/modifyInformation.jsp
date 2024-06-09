@@ -34,17 +34,14 @@
                  %>
                  
                  
-                <form action="SvModify" method="POST">
-                    
-                    <div class="form-group">
-                       <input type="text" class="form-control" id="textModify" name="textModify" value="<%= myText %>">                
-                         <input type="hidden" id="chooseModify" name="chooseModify" value="<%=choose %>">
+               <form action="SvModify" method="POST">               
+    <div class="form-group">
+        <input type="text" class="form-control" id="textModify" name="textModify" value="<%= myText %>">                
+        <input type="hidden" id="chooseModify" name="chooseModify" value="<%= choose %>">                      
+    </div>
+    <button type="submit" class="btn btn-primary">Modify</button>
+</form>
 
-                         <h1><%= myText %> </h1>
-                         <h1><%= choose %> </h1>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Modify</button>
-                </form>
             </div>
         </div>
     </div>

@@ -2,6 +2,41 @@
 <%@ page import="LogicClasses.Person" %>
 <% Person person1 = new Person();   //Instance for the program%>
 
+<% 
+    String myText = (String) request.getAttribute("myText");
+    String choose = (String) request.getAttribute("choose");
+    System.out.println("texto: "+myText+"choose: "+choose);
+    if(choose==null){
+    choose="";
+    }
+ 
+    switch (choose) {          
+        case "1":   //General information 
+              person1.setGeneralInformation(myText);     
+            System.out.println("caso 1");
+         break;               
+        
+        case "2":   //Experience             
+            System.out.println("caso 2");
+            person1.setExperience(myText);                           
+         break;                     
+        
+        case "3":   //Skills
+            System.out.println("caso 3");
+              person1.setSkills(myText);         
+         break;
+        default:
+                break;
+    } 
+%>
+
+
+
+
+
+
+
+
 <html lang="en">
 <head>
     
@@ -10,6 +45,7 @@
     <title>Curriculum Vitae</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
+    <link rel="icon" href="" type="image/x-icon">
 </head>
 <body>
     
@@ -29,9 +65,7 @@
         <div class="row">       <!-- general information-->
             <div class="col-md-4">
                 <h3>General information</h3>
-                <%person1.setGeneralInformation("info GI");%>
-                 <%person1.setExperience("info EXP");%>
-                 <%person1.setSkills("info SKILLS");%>
+              
             <% 
                  if (person1.getGeneralInformation() == null || person1.getGeneralInformation().isEmpty()) { %>
                   <p>Here will be the general information you want to add</p>
